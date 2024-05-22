@@ -1,5 +1,5 @@
-import {BrowserRouter, Routes, Route, Link, Outlet, useParams, useNavigate} from 'react-router-dom';
-import { Provider, useDispatch, useSelector } from 'react-redux';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+// import { Provider, useDispatch, useSelector } from 'react-redux';
 import VerSalas  from './Salas/salas';
 
 let NotImplemented = () => {
@@ -29,7 +29,7 @@ function App() {
       
       <Routes>
         <Route path='/' element={<VerSalas/>} />
-
+        <Route path='salas/' element={<NotImplemented/>} />
         
 
         
