@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route, Link, Outlet, useParams, useNavigate} from 'react-router-dom';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import VerSalas  from './Salas/salas';
+
+let NotImplemented = () => {
+  return (
+    <>
+      {/* link para usar redirecciones es la manera optima sin multiples peticiones */}
+      <Link to="/">Ir a videos</Link>
+      <h1>Esta pagina aun no esta lista</h1>
+    </>
+    )
+}
+
+let Error404 = () => {
+  return (
+    <>
+      {/* link para usar redirecciones es la manera optima sin multiples peticiones */}
+      <Link to="/">Regresar al inicio</Link>
+      <h1>Esta pagina no existe - 404</h1>
+    </>
+    )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //el proyecto se debe encapsular dentro de browserrouter para generar distintas rutas
+    <BrowserRouter>
+      
+      <Routes>
+        <Route path='/' element={<VerSalas/>} />
+
+        
+
+        
+        <Route path='*' element={<Error404/>} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
